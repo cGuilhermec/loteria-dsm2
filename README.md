@@ -1,46 +1,19 @@
-# Getting Started with Create React App
+# Atividade - React TS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+__Descrição da atividade:__ fazer um aplicativo web para mostrar os dados do último sorteio da Mega-sena, Lotofácil e Quina.
 
-## Available Scripts
+### Situação atual do código
 
-In the project directory, you can run:
+A aplicação atual faz a requsição na API de loterias da Caixa, disponível em 
+https://servicebus2.caixa.gov.br/portaldeloterias/api/home/ultimos-resultados e exibe o último sorteio da Mega-sena e Lotofácil.
 
-### `npm start`
+### Organização do código
+- `assets`: imagens dos trevos das loterias;
+- `components`: componentes para exibir os resultados dos sorteios de cada loteria;
+- `contexts`: contexto para propagar os resultados da mega-sena e lotofácil pela árvore de componentes. O contexto mantém no estado as propriedades `megasena` e `lotofacil`, esses objetos são propagados na árvore de componentes pelo contexto. As propriedades `megasena` e `lotofacil` são preenchidas após a requisição na API de loterias ser processada;
+- `hooks`: função para acessar o contexto;
+- `pages`: componente que faz a chamada dos componentes `Megasena` e `Lotofacil` e também exibe o texto *Carregando...*;
+- `services`: processa a requisição na API de loterias. Esse código será invocado pelo contexto (pacote `contexts`);
+- `types`: definição dos tipos de dados. A interface `Props` define as propriedades que possuem um sorteio de loteria. A interface `LoteriaProps` define os objetos a serem propagados pelo contexto. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
